@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Aquí coloco el LinearLayout, y lo termino más adelante, porque dentro pongo el resto de elementos-->
+<!--Como a mí no se me creó el XML de base en el proyecto, busqué los atributos base que
+pone android studio, los puse, y de ahí fui construyendo-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="50dp"
+    android:gravity="center">
+
+    <!--Vamos con el contenido dentro del LinearLayout-->
+
+    <!--En EditText, dejo una pista de lo que hay que poner, asigno la altura y el ancho del apartado,
+    y le asigno el ID que pide la tarea, poniendo delante "@+id/" para que Android Studio lo interprete y no de error-->
+
+    <!--Para Button asigno la ID, alto, ancho, y le añado el texto que pone "Saludar" y que pueda recibir información con android:inputType="textPersonName"-->
+    <EditText
+        android:id="@+id/etNombre"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:hint="Pon tu nombre aquí"
+        android:inputType="textPersonName">
+    </EditText>
+
+
+    <!--En Button asigno la ID, alto y ancho y un texto de saludo-->
+    <Button android:layout_height="48dp"
+        android:layout_width="300dp"
+        android:id="@+id/btnSaludar"
+        android:text="@string/saludar">
+    </Button>
+
+    <!--En TextView asigno la ID, alto y ancho-->
+    <TextView android:layout_height="48dp"
+        android:layout_width="300dp"
+        android:id="@+id/tvMensaje">
+    </TextView>
+    
+</LinearLayout>
