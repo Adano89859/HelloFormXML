@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!--Aquí coloco el LinearLayout, y lo termino más adelante, porque dentro pongo el resto de elementos-->
+<!--Como a mí no se me creó el XML de base en el proyecto, busqué los atributos base que
+pone android studio, los puse, y de ahí fui construyendo-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <!--Vamos con el contenido dentro del LinearLayout-->
+
+    <!--En EditText, dejo una pista de lo que hay que poner, asigno la altura y el ancho del apartado,
+    y le asigno el ID que pide la tarea, poniendo delante "@+id/" para que Android Studio lo interprete y no de error-->
+    <EditText android:autofillHints="Pon tu nombre aquí"
+        android:layout_height="5dp"
+        android:layout_width="5dp"
+        android:id="@+id/etNombre">
+    </EditText>
+
+    <!--Para Button asigno la ID, alto, ancho, y le añado el texto que pone "Saludar"-->
+    <Button android:layout_height="5dp"
+        android:layout_width="5dp"
+        android:id="@+id/btnSaludar"
+        android:text="Saludar">
+    </Button>
+
+    <!--En TextView asigno la ID, alto y ancho-->
+    <TextView android:layout_height="5dp"
+        android:layout_width="5dp"
+        android:id="@+id/tvMensaje">
+    </TextView>
+    
+</LinearLayout>
