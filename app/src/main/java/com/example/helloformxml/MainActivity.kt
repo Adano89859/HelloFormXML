@@ -8,6 +8,34 @@ import android.widget.Button
 import androidx.activity.ComponentActivity
 
 class MainActivity : ComponentActivity() {
+
+    //Creo el método resetUi para poner a 0 el contenido de las variables
+    private fun resetUi(
+        etNombre: EditText,
+        tvMensaje: TextView,
+        btnSaludar: Button,
+        caracteresContador: TextView
+    ){
+        //Para que al iniciar la App esté todo vacío, hago que las variables no tengan contenido al inicio
+        etNombre.text.clear()
+        tvMensaje.text = ""
+        btnSaludar.isEnabled = false
+        caracteresContador.text = "0 caracteres."
+    }
+
+    //Uso onStop para que se ejecute cuando la app deja de verse, y en ella recurro a resetUi
+    override fun onStop() {
+        super.onStop()
+
+        val etNombre = findViewById<EditText>(R.id.etNombre)
+        val tvMensaje = findViewById<TextView>(R.id.tvMensaje)
+        val btnSaludar = findViewById<Button>(R.id.btnSaludar)
+        val caracteresContador = findViewById<TextView>(R.id.caracteresContador)
+
+        //Llamo a resetUi
+        resetUi(etNombre, tvMensaje, btnSaludar, caracteresContador)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //Indico que se saque la vista del layout que hice con xml
