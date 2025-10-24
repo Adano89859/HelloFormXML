@@ -1,48 +1,43 @@
 package com.example.helloformxml
 
 import android.os.Bundle
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Button
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.helloformxml.ui.theme.HelloFormXMLTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            HelloFormXMLTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                        //Test para commit
-                    )
-                }
+        //Indico que se saque la vista del layout que hice con xml
+        setContentView(R.layout.activity_main)
+
+        //Creo variables que estarán relacionadas con los elementos del XML
+        val etNombre = findViewById<EditText>(R.id.etNombre)
+        val btnSaludar = findViewById<Button>(R.id.btnSaludar)
+        val tvMensaje = findViewById<TextView>(R.id.tvMensaje)
+
+        //Hago la lógica del botón
+        btnSaludar.setOnClickListener {
+            //Extraigo la variable nombre del XML, y la convierto a String
+            val nombre = etNombre.text.toString().trim()
+
+            //Si no hay nombre pusto, actualizo el texto para que ponga su nombre, sino saludo
+            if(nombre.isEmpty()){
+                tvMensaje.text = "Escribe tu nombre."
+            }else{
+                tvMensaje.text = "Hola, $nombre"
             }
+
+            //Este punto sirve para ocultar el teclado una vez se ha escrito
+            //Extraigo algo similar a una clase del sistema de imputs que tiene android studio
+            val metodosDeInputDeManager = getSystemService(INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
+            //Ejecuto un método que oculta el teclado una vez usado, pasandole la variable del texto e indicando con el 0 que se oculte
+            metodosDeInputDeManager.hideSoftInputFromWindow(etNombre.windowToken,0)
+
         }
+
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    HelloFormXMLTheme {
-        Greeting("Android")
-    }
-}
