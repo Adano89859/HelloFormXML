@@ -49,6 +49,7 @@ class MainActivity : ComponentActivity() {
 
             }
 
+
             //Coloco un método que mira si el texto tiene texto o no justo tras ser medificado
             override fun afterTextChanged(esEditable : android.text.Editable?) {
                 //Si el contenido del texto no es nulo o está vacío, el botón se activará
