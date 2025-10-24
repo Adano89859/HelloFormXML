@@ -25,6 +25,15 @@ pone android studio, los puse, y de ahí fui construyendo-->
     </EditText>
 
 
+    <!--Añado un nuevo TextView, que voy a usar para el apartado opcional de mostrar los caracteres-->
+    <TextView
+        android:id="@+id/caracteresContador"
+         android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:text="0 caracteres">
+    </TextView>
+
+
     <!--En Button asigno la ID, alto y ancho y un texto de saludo-->
     <Button android:layout_height="48dp"
         android:layout_width="300dp"
